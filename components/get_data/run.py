@@ -15,7 +15,7 @@ logger = logging.getLogger()
 
 
 def go(args):
-
+    
     run = wandb.init(job_type="download_file")
     run.config.update(args)
 
@@ -28,6 +28,8 @@ def go(args):
         os.path.join("data", args.sample),
         run,
     )
+
+    logger.info(f"*********** Dataset Downloaded and Uploaded to W&B ************") #$$$$$$$$$$$$$$$$$$
 
 
 if __name__ == "__main__":
