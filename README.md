@@ -606,3 +606,7 @@ you have trained your new model on the new data.
 
 - Data input using sample2.csv
 ![](./images/sample2_WB_log.jpg)
+
+# USEFUL LINK
+- this Github repo: https://github.com/LaurentVeyssier/build-ml-pipeline-for-short-term-rental-prices/edit/main/README.md
+- Weight&Bias repo: https://wandb.ai/laurentv/nyc_airbnb/table?workspace=user-laurentv
