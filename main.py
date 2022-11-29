@@ -39,6 +39,7 @@ def go(config: DictConfig):
     # Steps to execute
     steps_par = config['main']['steps']
     active_steps = steps_par.split(",") if steps_par != "all" else _steps
+    #active_steps = ["train_random_forest" ] #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ FOR HYPERPARAM OPTIMIZATION $$$$$$$$$$$$$$$
 
     # Move to a temporary directory
     with tempfile.TemporaryDirectory() as tmp_dir:
@@ -126,11 +127,15 @@ def go(config: DictConfig):
 
         if "test_regression_model" in active_steps:
 
-            ##################
-            # Implement here #
-            ##################
-
-            pass
+            logger.info(f"********** Test production model against test set Step **********")            
+            _ = mlflow.run(
+                os.path.join(root_path, 'components','test_regression_model'),
+                "main",
+                parameters={
+                    "mlflow_model": "random_forest_export:prod",
+                    "test_dataset": "test_data.csv:latest"
+                },
+            )
 
 
 if __name__ == "__main__":

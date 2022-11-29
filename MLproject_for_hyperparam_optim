@@ -15,4 +15,4 @@ entry_points:
         type: str
         default: ''
 
-    command: python main.py main.steps={steps} 
+    command: python main.py --multirun modeling.random_forest.max_features=0.1,0.33,0.5,0.75,1  modeling.max_tfidf_features=10,15,30 modeling.random_forest.max_depth=10,15,20,25,30,35,40 hydra/launcher=joblib
