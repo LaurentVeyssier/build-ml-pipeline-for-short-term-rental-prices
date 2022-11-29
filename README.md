@@ -567,3 +567,18 @@ you have trained your new model on the new data.
 ## License
 
 [License](LICENSE.txt)
+
+
+# PROJECT OUTPUTS
+
+- hyperparameters tuning achieved best combination - Tracking done with W&B
+![](./images/best_run_hyperparameters_tunings.jpg)
+
+- best model tagged for production
+![](./images/model_prod.jpg)
+
+- features importance overview
+![](./images/features_importance.jpg)
+
+- Overall production pipeline view with W&B flowchart
+![](./images/pipeline_view.jpg)
