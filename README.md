@@ -593,3 +593,16 @@ you have trained your new model on the new data.
   - This step also requires to force train_random_forest step in main.py root file (uncomment code line 42 left to this effect in the main.py central file)
   - Launch hyperparameter tuning simply with `mlflow run .` from the CLI under the nyc_airbnb_dev conda environment (enriched with joblib) and main project folder.
 - Adjustments made to train and test step modules to only use preprocessed columns and drop the not used ones from the datasets during production inference
+
+# TRAINING RESULT SAMPLE2
+
+- MAE & W&B run training complete
+![](./images/training_new_data_sample2.jpg)
+
+![](./images/run_data_sample2.jpg)
+
+- W&B run details with new inference artifact #95
+![](./images/new_model_data_sample2.jpg)
+
+- Data input using sample2.csv
+![](./images/sample2_WB_log.jpg)
