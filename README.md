@@ -567,3 +567,29 @@ you have trained your new model on the new data.
 ## License
 
 [License](LICENSE.txt)
+
+
+# PROJECT OUTPUTS
+
+- Hyperparameters tuning achieved best combination using Hydra and joblib acceleration - Tracking done with W&B - tail of optimization runs removed to optimize storage space in W&B
+![](./images/best_run_hyperparameters_tunings.jpg)
+
+- best model tagged for production using sklearn_save
+![](./images/model_prod.jpg)
+
+- features importance overview - Features not used are removed from input dataset
+![](./images/features_importance.jpg)
+
+- Overall production pipeline view with W&B flowchart - regression test showing performnce aligned with training
+![](./images/pipeline_view.jpg)
+
+# IMPORTANT NOTE: Used configuration
+
+- Project ran under python windows environment and CLI (NOT WSL2 Linux)
+- adaptations made to packages versions in all conda.yml files to run under windows environment
+- MLProject files adjusted to overcome Hydra lexer parsing issues not properly working under windows + syntax differencies (--multirun)
+- Hyperparameter tuning 
+  - This step requires to change the MLproject file at the core project root folder to include hyperparameter requierements and --multirun option. The file is provided and tagged to be used for hyperparameter tuning in the folder
+  - This step also requires to force train_random_forest step in main.py root file (uncomment code line 42 left to this effect in the main.py central file)
+  - Launch hyperparameter tuning simply with `mlflow run .` from the CLI under the nyc_airbnb_dev conda environment (enriched with joblib) and main project folder.
+- Adjustments made to train and test step modules to only use preprocessed columns and drop the not used ones from the datasets during production inference
