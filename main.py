@@ -48,8 +48,8 @@ def go(config: DictConfig):
             # Download file and load in W&B
             logger.info(f"********** Collecting Dataset Step **********")           
             _ = mlflow.run(
-                #f"{config['main']['components_repository']}/get_data",         # invoke get_data step and passing arguments as per local MLProject command
-                os.path.join(root_path, 'components','get_data'),  
+                f"{config['main']['components_repository']}/get_data",         # invoke get_data step and passing arguments as per local MLProject command
+                #os.path.join(root_path, 'components','get_data'),  
                 "main",
                 parameters={
                     "sample": config["etl"]["sample"],
